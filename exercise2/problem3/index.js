@@ -1,14 +1,19 @@
 function numbersSum(arr) {
   let sum = 0;
-  for (let element of arr) {
-    if (typeof element === "number") {
-      sum += element;
-    } else if (!isNaN(element) && typeof element !== "boolean") {
-      // Check if the element can be converted to a number and it's not a boolean
-      sum += parseFloat(element);
+
+  for (let i = 0; i < arr.length; i++) {
+    if (typeof arr[i] === "number" && !isNaN(arr[i])) {
+      sum += arr[i];
     }
   }
+
   return sum;
 }
+
+console.log(numbersSum([1, 2, "13", "4", "645"])) // 3
+
+console.log(numbersSum([true, false, "123", "75"])) // 0
+
+console.log(numbersSum([1, 2, 3, 4, 5, true])) // 15
 
 module.exports = numbersSum;
